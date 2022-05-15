@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <database name="tcc" schema="public" type="PostgreSQL - 14.3">
    <tables>
-      <table name="personas" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="persona_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="apellido" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="email" nullable="false" remarks="" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="now()" digits="6" id="4" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+      <table name="leads" numRows="0" remarks="Representa a clientes potenciales." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="lead_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="fk_leads_personas" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="estado" nullable="false" remarks="Relación actual del lead con la organización." size="10" type="int4" typeCode="4"/>
+         <primaryKey column="lead_id" sequenceNumberInPK="1"/>
+         <index name="leads_pkey" unique="true">
+            <column ascending="true" name="lead_id"/>
+         </index>
+      </table>
+      <table name="personas" numRows="0" remarks="Registro de personas." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="persona_id" nullable="false" remarks="Id de la persona." size="10" type="int4" typeCode="4">
+            <child column="persona_id" foreignKey="fk_leads_personas" implied="false" onDeleteCascade="false" schema="public" table="leads"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre de la persona." size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="apellido" nullable="false" remarks="Apellido de la persona." size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="email" nullable="false" remarks="Dirección de correo de la persona." size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha y hora del sistema en la que se insertó el registro." size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
