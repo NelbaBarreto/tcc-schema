@@ -1,2 +1,13 @@
+casos
+contactos_organizaciones
+contactos_oportunidades
+tareas
+llamadas
 leads
+oportunidades
+organizaciones
+actividades
+contactos
+campanas
+usuarios
 personas

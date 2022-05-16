@@ -1,33 +1,289 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <database name="tcc" schema="public" type="PostgreSQL - 14.3">
    <tables>
+      <table name="actividades" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="actividad_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="actividad_id" foreignKey="fk_lla_actividades" implied="false" onDeleteCascade="false" schema="public" table="llamadas"/>
+            <child column="actividad_id" foreignKey="fk_tar_actividades" implied="false" onDeleteCascade="false" schema="public" table="tareas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="estado" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="tip_referencia" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="referencia_id" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_asignado_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_act_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_insercion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_act_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="usu_modificacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_act_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="usu_eliminacion_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cam_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <primaryKey column="actividad_id" sequenceNumberInPK="1"/>
+         <index name="actividades_pkey" unique="true">
+            <column ascending="true" name="actividad_id"/>
+         </index>
+      </table>
+      <table name="campanas" numRows="0" remarks="Actividades de marketing cuyo propósito es generar interés y hacer conocer los productos, servicios y la marca de una empresa." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="campana_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="campana_id" foreignKey="fk_opo_campanas" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="usu_asignado_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cam_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nombre" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="descripcion" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="estado" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="fec_inicio" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="fec_final" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_insercion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cam_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="9" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_modificacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cam_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="usu_eliminacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cam_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <primaryKey column="campana_id" sequenceNumberInPK="1"/>
+         <index name="campanas_pkey" unique="true">
+            <column ascending="true" name="campana_id"/>
+         </index>
+      </table>
+      <table name="casos" numRows="0" remarks="Representan incidencias o problemas que puedan surgir de los clientes." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="caso_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="prioridad" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="estado" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tipo" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="origen" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="solucion" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="contacto_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="contacto_id" foreignKey="fk_cas_contactos" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="9" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_insercion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cas_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="11" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="usu_modificacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cas_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="13" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="usu_eliminacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cas_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="usu_asignado_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_cas_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <primaryKey column="caso_id" sequenceNumberInPK="1"/>
+         <index name="casos_pkey" unique="true">
+            <column ascending="true" name="caso_id"/>
+         </index>
+      </table>
+      <table name="contactos" numRows="0" remarks="Representan organizaciones con las que tiene una relación comercial." schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="contacto_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="contacto_id" foreignKey="fk_cas_contactos" implied="false" onDeleteCascade="false" schema="public" table="casos"/>
+            <child column="contacto_id" foreignKey="fk_cop_contactos" implied="false" onDeleteCascade="false" schema="public" table="contactos_oportunidades"/>
+            <child column="contacto_id" foreignKey="fk_cor_contacto_id" implied="false" onDeleteCascade="false" schema="public" table="contactos_organizaciones"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="fk_con_personas" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <primaryKey column="contacto_id" sequenceNumberInPK="1"/>
+         <index name="contactos_pkey" unique="true">
+            <column ascending="true" name="contacto_id"/>
+         </index>
+      </table>
+      <table name="contactos_oportunidades" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="contacto_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="contacto_id" foreignKey="fk_cop_contactos" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="oportunidad_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="oportunidad_id" foreignKey="fk_cop_oportunidades" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+      </table>
+      <table name="contactos_organizaciones" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="contacto_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="contacto_id" foreignKey="fk_cor_contacto_id" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="organizacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="organizacion_id" foreignKey="fk_cor_organizaciones" implied="false" onDeleteCascade="false" schema="public" table="organizaciones"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+      </table>
       <table name="leads" numRows="0" remarks="Representa a clientes potenciales." schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="lead_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <parent column="persona_id" foreignKey="fk_leads_personas" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
          </column>
          <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="estado" nullable="false" remarks="Relación actual del lead con la organización." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="origen" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_asignado" nullable="true" remarks="Usuario asignado al seguimiento del lead." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="5" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_insercion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_eliminacion" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
          <primaryKey column="lead_id" sequenceNumberInPK="1"/>
          <index name="leads_pkey" unique="true">
             <column ascending="true" name="lead_id"/>
          </index>
       </table>
+      <table name="llamadas" numRows="0" remarks="Registro y programación de llamadas" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="llamada_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="actividad_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="actividad_id" foreignKey="fk_lla_actividades" implied="false" onDeleteCascade="false" schema="public" table="actividades"/>
+         </column>
+         <primaryKey column="llamada_id" sequenceNumberInPK="1"/>
+         <index name="llamadas_pkey" unique="true">
+            <column ascending="true" name="llamada_id"/>
+         </index>
+      </table>
+      <table name="oportunidades" numRows="0" remarks="Representa el acuerdo de venta específico que se intenta conseguir." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="oportunidad_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="oportunidad_id" foreignKey="fk_cop_oportunidades" implied="false" onDeleteCascade="false" schema="public" table="contactos_oportunidades"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="campana_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="campana_id" foreignKey="fk_opo_campanas" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_asignado_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_opo_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="nombre" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="etapa" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="5" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_insercion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_opo_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_opo_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_eliminacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_opo_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <primaryKey column="oportunidad_id" sequenceNumberInPK="1"/>
+         <index name="oportunidades_pkey" unique="true">
+            <column ascending="true" name="oportunidad_id"/>
+         </index>
+      </table>
+      <table name="organizaciones" numRows="0" remarks="Representan organizaciones con las que tiene una relación comercial." schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="organizacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="organizacion_id" foreignKey="fk_cor_organizaciones" implied="false" onDeleteCascade="false" schema="public" table="contactos_organizaciones"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="descripcion" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="website" nullable="true" remarks="" size="500" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="persona_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="fk_org_personas" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_asignado" nullable="true" remarks="Usuario asignado para el seguimiento de la organización." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="5" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_insercion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_eliminacion" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="organizacion_id" sequenceNumberInPK="1"/>
+         <index name="organizaciones_pkey" unique="true">
+            <column ascending="true" name="organizacion_id"/>
+         </index>
+      </table>
       <table name="personas" numRows="0" remarks="Registro de personas." schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="persona_id" nullable="false" remarks="Id de la persona." size="10" type="int4" typeCode="4">
+            <child column="persona_id" foreignKey="fk_con_personas" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
             <child column="persona_id" foreignKey="fk_leads_personas" implied="false" onDeleteCascade="false" schema="public" table="leads"/>
+            <child column="persona_id" foreignKey="fk_org_personas" implied="false" onDeleteCascade="false" schema="public" table="organizaciones"/>
+            <child column="persona_id" foreignKey="fk_usu_personas" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre de la persona." size="120" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="apellido" nullable="false" remarks="Apellido de la persona." size="120" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="email" nullable="false" remarks="Dirección de correo de la persona." size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="now()" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha y hora del sistema en la que se insertó el registro." size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_eliminacion" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="false" remarks="Usuario que realizó la inserción del registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha y hora en que se modificó el registro por última vez." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="Usuario que realizó la última modificación del registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="fec_eliminacion" nullable="true" remarks="Fecha y hora en que se eliminó el registro." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_eliminacion" nullable="true" remarks="Usuario que eliminó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="telefono" nullable="true" remarks="Número de teléfono de la persona." size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="celular" nullable="true" remarks="Número de celular de la persona." size="32" type="varchar" typeCode="12"/>
          <primaryKey column="persona_id" sequenceNumberInPK="1"/>
          <index name="personas_pkey" unique="true">
             <column ascending="true" name="persona_id"/>
+         </index>
+      </table>
+      <table name="tareas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="tarea_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="actividad_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="actividad_id" foreignKey="fk_tar_actividades" implied="false" onDeleteCascade="false" schema="public" table="actividades"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fec_inicio" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fec_fin" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <primaryKey column="tarea_id" sequenceNumberInPK="1"/>
+         <index name="tareas_pkey" unique="true">
+            <column ascending="true" name="tarea_id"/>
+         </index>
+      </table>
+      <table name="usuarios" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="usuario_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="usu_asignado_id" foreignKey="fk_act_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="actividades"/>
+            <child column="usu_eliminacion_id" foreignKey="fk_cam_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="actividades"/>
+            <child column="usu_insercion_id" foreignKey="fk_act_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="actividades"/>
+            <child column="usu_modificacion_id" foreignKey="fk_act_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="actividades"/>
+            <child column="usu_asignado_id" foreignKey="fk_cam_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
+            <child column="usu_eliminacion_id" foreignKey="fk_cam_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
+            <child column="usu_insercion_id" foreignKey="fk_cam_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
+            <child column="usu_modificacion_id" foreignKey="fk_cam_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
+            <child column="usu_asignado_id" foreignKey="fk_cas_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="casos"/>
+            <child column="usu_eliminacion_id" foreignKey="fk_cas_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="casos"/>
+            <child column="usu_insercion_id" foreignKey="fk_cas_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="casos"/>
+            <child column="usu_modificacion_id" foreignKey="fk_cas_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="casos"/>
+            <child column="usu_asignado_id" foreignKey="fk_opo_usu_asignado" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+            <child column="usu_eliminacion_id" foreignKey="fk_opo_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+            <child column="usu_insercion_id" foreignKey="fk_opo_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+            <child column="usu_modificacion_id" foreignKey="fk_opo_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+            <child column="usu_eliminacion_id" foreignKey="fk_usu_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+            <child column="usu_insercion_id" foreignKey="fk_usu_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+            <child column="usu_modificacion_id" foreignKey="fk_usu_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="fk_usu_personas" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="2" name="admin" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="3" name="activo" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="4" name="fec_insercion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_usu_usu_insercion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_usu_usu_modificacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="fec_eliminacion" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_eliminacion_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="fk_usu_usu_eliminacion" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <primaryKey column="usuario_id" sequenceNumberInPK="1"/>
+         <index name="usuarios_pkey" unique="true">
+            <column ascending="true" name="usuario_id"/>
          </index>
       </table>
    </tables>

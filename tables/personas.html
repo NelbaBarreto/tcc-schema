@@ -125,8 +125,20 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
+                                                <td title="contactos.persona_id references personas.persona_id via fk_con_personas"><a href='contactos.html'>contactos</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">fk_con_personas<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="leads.persona_id references personas.persona_id via fk_leads_personas"><a href='leads.html'>leads</a><span class='relatedKey'>.persona_id</span></td>
                                                 <td class="constraint detail">fk_leads_personas<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="organizaciones.persona_id references personas.persona_id via fk_org_personas"><a href='organizaciones.html'>organizaciones</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">fk_org_personas<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="usuarios.persona_id references personas.persona_id via fk_usu_personas"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">fk_usu_personas<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -219,7 +231,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Usuario que realizó la inserción del registro.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_modificacion">fec_modificacion</span></td>
@@ -236,7 +248,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Fecha y hora en que se modificó el registro por última vez.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="usu_modificacion">usu_modificacion</span></td>
@@ -253,7 +265,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Usuario que realizó la última modificación del registro.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_eliminacion">fec_eliminacion</span></td>
@@ -270,7 +282,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Fecha y hora en que se eliminó el registro.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="usu_eliminacion">usu_eliminacion</span></td>
@@ -287,7 +299,41 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Usuario que eliminó el registro.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="telefono">telefono</span></td>
+                                    <td>varchar</td>
+                                    <td>32</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Número de teléfono de la persona.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="celular">celular</span></td>
+                                    <td>varchar</td>
+                                    <td>32</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Número de celular de la persona.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -337,11 +383,16 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/personas.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/personas.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
                             </div>
