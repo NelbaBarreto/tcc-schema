@@ -1,13 +1,5 @@
 personas
 usuarios
-campanas
-contactos
-actividades
-organizaciones
-oportunidades
-leads
-llamadas
-tareas
-contactos_oportunidades
-contactos_organizaciones
-casos
+empleados
+paises
+SequelizeMeta

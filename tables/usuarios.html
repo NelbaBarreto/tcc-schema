@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>usuarios</h1><p><span id="recordNumber">0</span> rows</p><br />
+                    <h1>usuarios</h1><p><span id="recordNumber">1</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -104,88 +104,16 @@
                                 <tbody>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usuario_id">usuario_id</span></td>
-                                    <td>int4</td>
+                                    <td>serial</td>
                                     <td>10</td>
                                     <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
+                                    <td title='Automatically updated by the database'>√</td>
+                                    <td>nextval(&#39;usuarios_usuario_id_seq&#39;::regclass)</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="actividades.usu_asignado_id references usuarios.usuario_id via fk_act_usu_asignado"><a href='actividades.html'>actividades</a><span class='relatedKey'>.usu_asignado_id</span></td>
-                                                <td class="constraint detail">fk_act_usu_asignado<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="actividades.usu_eliminacion_id references usuarios.usuario_id via fk_cam_usu_eliminacion"><a href='actividades.html'>actividades</a><span class='relatedKey'>.usu_eliminacion_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="actividades.usu_insercion_id references usuarios.usuario_id via fk_act_usu_insercion"><a href='actividades.html'>actividades</a><span class='relatedKey'>.usu_insercion_id</span></td>
-                                                <td class="constraint detail">fk_act_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="actividades.usu_modificacion_id references usuarios.usuario_id via fk_act_usu_modificacion"><a href='actividades.html'>actividades</a><span class='relatedKey'>.usu_modificacion_id</span></td>
-                                                <td class="constraint detail">fk_act_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="campanas.usu_asignado_id references usuarios.usuario_id via fk_cam_usu_asignado"><a href='campanas.html'>campanas</a><span class='relatedKey'>.usu_asignado_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_asignado<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="campanas.usu_eliminacion_id references usuarios.usuario_id via fk_cam_usu_eliminacion"><a href='campanas.html'>campanas</a><span class='relatedKey'>.usu_eliminacion_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="campanas.usu_insercion_id references usuarios.usuario_id via fk_cam_usu_insercion"><a href='campanas.html'>campanas</a><span class='relatedKey'>.usu_insercion_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="campanas.usu_modificacion_id references usuarios.usuario_id via fk_cam_usu_modificacion"><a href='campanas.html'>campanas</a><span class='relatedKey'>.usu_modificacion_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="casos.usu_asignado_id references usuarios.usuario_id via fk_cas_usu_asignado"><a href='casos.html'>casos</a><span class='relatedKey'>.usu_asignado_id</span></td>
-                                                <td class="constraint detail">fk_cas_usu_asignado<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="casos.usu_eliminacion_id references usuarios.usuario_id via fk_cas_usu_eliminacion"><a href='casos.html'>casos</a><span class='relatedKey'>.usu_eliminacion_id</span></td>
-                                                <td class="constraint detail">fk_cas_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="casos.usu_insercion_id references usuarios.usuario_id via fk_cas_usu_insercion"><a href='casos.html'>casos</a><span class='relatedKey'>.usu_insercion_id</span></td>
-                                                <td class="constraint detail">fk_cas_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="casos.usu_modificacion_id references usuarios.usuario_id via fk_cas_usu_modificacion"><a href='casos.html'>casos</a><span class='relatedKey'>.usu_modificacion_id</span></td>
-                                                <td class="constraint detail">fk_cas_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="oportunidades.usu_asignado_id references usuarios.usuario_id via fk_opo_usu_asignado"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.usu_asignado_id</span></td>
-                                                <td class="constraint detail">fk_opo_usu_asignado<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="oportunidades.usu_eliminacion_id references usuarios.usuario_id via fk_opo_usu_eliminacion"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.usu_eliminacion_id</span></td>
-                                                <td class="constraint detail">fk_opo_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="oportunidades.usu_insercion_id references usuarios.usuario_id via fk_opo_usu_insercion"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.usu_insercion_id</span></td>
-                                                <td class="constraint detail">fk_opo_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="oportunidades.usu_modificacion_id references usuarios.usuario_id via fk_opo_usu_modificacion"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.usu_modificacion_id</span></td>
-                                                <td class="constraint detail">fk_opo_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="usuarios.usu_eliminacion_id references usuarios.usuario_id via fk_usu_usu_eliminacion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usu_eliminacion_id</span></td>
-                                                <td class="constraint detail">fk_usu_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="usuarios.usu_insercion_id references usuarios.usuario_id via fk_usu_usu_insercion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usu_insercion_id</span></td>
-                                                <td class="constraint detail">fk_usu_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="usuarios.usu_modificacion_id references usuarios.usuario_id via fk_usu_usu_modificacion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usu_modificacion_id</span></td>
-                                                <td class="constraint detail">fk_usu_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="empleados.usuario_id references usuarios.usuario_id via empleados_usuario_id_fkey"><a href='empleados.html'>empleados</a><span class='relatedKey'>.usuario_id</span></td>
+                                                <td class="constraint detail">empleados_usuario_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -193,12 +121,12 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Id del usuario.</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="persona_id">persona_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="nom_usuario">nom_usuario</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -208,30 +136,9 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="usuarios.persona_id references personas.persona_id via fk_usu_personas"><a href='personas.html'>personas</a><span class='relatedKey'>.persona_id</span></td>
-                                                <td class="constraint detail">fk_usu_personas<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="admin">admin</span></td>
-                                    <td>bool</td>
-                                    <td>1</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>false</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
+                                    <td><p>Nombre de usuario en el sistema.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="activo">activo</span></td>
@@ -239,7 +146,7 @@
                                     <td>1</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>false</td>
+                                    <td>true</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -248,88 +155,12 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Indica si el usuario está activo o inactivo en el sistema.</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fec_insercion">fec_insercion</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_insercion_id">usu_insercion_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="usuarios.usu_insercion_id references usuarios.usuario_id via fk_usu_usu_insercion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_usu_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fec_modificacion">fec_modificacion</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_modificacion_id">usu_modificacion_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="usuarios.usu_modificacion_id references usuarios.usuario_id via fk_usu_usu_modificacion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_usu_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fec_eliminacion">fec_eliminacion</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
+                                    <td><span id="password">password</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -344,10 +175,10 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_eliminacion_id">usu_eliminacion_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
+                                    <td><span id="email">email</span></td>
+                                    <td>varchar</td>
+                                    <td>60</td>
+                                    <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -356,13 +187,77 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="usuarios.usu_eliminacion_id references usuarios.usuario_id via fk_usu_usu_eliminacion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_usu_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Dirección de correo del usuario.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="usu_insercion">usu_insercion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Nombre del usuario que insertó el registro.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fec_insercion">fec_insercion</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;2022-09-06 16:48:06.512-04&#39;::timestamp with time zone</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha en la que se creó el registro.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fec_modificacion">fec_modificacion</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;2022-09-06 16:48:06.512-04&#39;::timestamp with time zone</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha en la que se modificó el registro por última vez.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="usu_modificacion">usu_modificacion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Nombre del usuario que modificó el registro por última vez.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -393,6 +288,12 @@
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>usuario_id</td>
+                                </tr>
+                                <tr>
+                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> usuarios_nom_usuario_key</td>
+                                    <td>Must be unique</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>nom_usuario</td>
                                 </tr>
                                 </tbody>
                             </table>
