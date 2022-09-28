@@ -1,5 +1,12 @@
+tip_campanas
 SequelizeMeta
-paises
+leads
 empleados
+campana_tipos
+direcciones
+ciudades
+paises
+cursos
 usuarios
 personas
+campanas

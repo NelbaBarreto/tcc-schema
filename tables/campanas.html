@@ -73,20 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>campanas</h1><p><span id="recordNumber">0</span> rows</p><br />
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <i class="fa fa-file-text-o"></i>
-                            <h3 id="Description" class="box-title">Description</h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div><!-- /.box-header -->
-                        <div class="box-body clearfix">
-                            <p>Actividades de marketing cuyo propósito es generar interés y hacer conocer los productos, servicios y la marca de una empresa.</p>
-                        </div><!-- /.box-body -->
-                    </div>
+                    <h1>campanas</h1><p><span id="recordNumber">4</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -117,16 +104,24 @@
                                 <tbody>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="campana_id">campana_id</span></td>
-                                    <td>int4</td>
+                                    <td>serial</td>
                                     <td>10</td>
                                     <td title=''></td>
                                     <td title='Automatically updated by the database'>√</td>
-                                    <td>null</td>
+                                    <td>nextval(&#39;campanas_campana_id_seq&#39;::regclass)</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="oportunidades.campana_id references campanas.campana_id via fk_opo_campanas"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.campana_id</span></td>
-                                                <td class="constraint detail">fk_opo_campanas<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="campana_tipos.campana_id references campanas.campana_id via campana_tipos_campana_id_fkey"><a href='campana_tipos.html'>campana_tipos</a><span class='relatedKey'>.campana_id</span></td>
+                                                <td class="constraint detail">campana_tipos_campana_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="campana_tipos.tip_campana_id&#39;s name implies that it&#39;s a child of campanas.campana_id, but it doesn&#39;t reference that column."><a href='campana_tipos.html'>campana_tipos</a><span class='relatedKey'>.tip_campana_id</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="leads.campana_id&#39;s name implies that it&#39;s a child of campanas.campana_id, but it doesn&#39;t reference that column."><a href='leads.html'>leads</a><span class='relatedKey'>.campana_id</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -134,67 +129,12 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_asignado_id">usu_asignado_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="campanas.usu_asignado_id references usuarios.usuario_id via fk_cam_usu_asignado"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_asignado<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
+                                    <td><p>Identificador único de la campana.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="nombre">nombre</span></td>
                                     <td>varchar</td>
-                                    <td>120</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="descripcion">descripcion</span></td>
-                                    <td>text</td>
-                                    <td>2147483647</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="estado">estado</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
+                                    <td>1000</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -210,9 +150,9 @@
                                 </tr>
                                 <tr>
                                     <td><span id="fec_inicio">fec_inicio</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
-                                    <td title='nullable'>√</td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -223,12 +163,29 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Fecha de inicio de la campana.</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fec_final">fec_final</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
+                                    <td><span id="fec_fin">fec_fin</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha del fin de la campana.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="usu_insercion">usu_insercion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -240,15 +197,15 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Nombre del usuario que insertó el registro.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_insercion">fec_insercion</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>now()</td>
+                                    <td>&#39;2022-09-25 21:55:51.379-04&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -257,36 +214,15 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_insercion_id">usu_insercion_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="campanas.usu_insercion_id references usuarios.usuario_id via fk_cam_usu_insercion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_insercion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
+                                    <td><p>Fecha en la que se creó el registro.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_modificacion">fec_modificacion</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>now()</td>
+                                    <td>&#39;2022-09-25 21:55:51.379-04&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -295,33 +231,12 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Fecha en la que se modificó el registro por última vez.</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_modificacion_id">usu_modificacion_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="campanas.usu_modificacion_id references usuarios.usuario_id via fk_cam_usu_modificacion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_modificacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fec_eliminacion">fec_eliminacion</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
+                                    <td><span id="usu_modificacion">usu_modificacion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -333,28 +248,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_eliminacion_id">usu_eliminacion_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="campanas.usu_eliminacion_id references usuarios.usuario_id via fk_cam_usu_eliminacion"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
-                                                <td class="constraint detail">fk_cam_usu_eliminacion<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
+                                    <td><p>Nombre del usuario que modificó el registro por última vez.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -404,16 +298,21 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
-                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/campanas.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
-                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
-                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/campanas.2degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                        <a name='diagram'><object type="image/svg+xml" id="oneimpliedDegreeImg" data="../diagrams/tables/campanas.implied1degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        
+                                        <a name='diagram'><object type="image/svg+xml" id="twoimpliedDegreeImg" data="../diagrams/tables/campanas.implied2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
                             </div>
