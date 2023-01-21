@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>personas</h1><p><span id="recordNumber">22</span> rows</p><br />
+                    <h1>personas</h1><p><span id="recordNumber">0</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -112,12 +112,32 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
+                                                <td title="contactos.persona_id references personas.persona_id via contactos_persona_id_fkey"><a href='contactos.html'>contactos</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">contactos_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="direcciones.persona_id references personas.persona_id via direcciones_persona_id_fkey"><a href='direcciones.html'>direcciones</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">direcciones_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="empleados.persona_id references personas.persona_id via empleados_persona_id_fkey"><a href='empleados.html'>empleados</a><span class='relatedKey'>.persona_id</span></td>
                                                 <td class="constraint detail">empleados_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="leads.persona_id references personas.persona_id via leads_persona_id_fkey"><a href='leads.html'>leads</a><span class='relatedKey'>.persona_id</span></td>
                                                 <td class="constraint detail">leads_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="organizaciones.persona_id references personas.persona_id via organizaciones_persona_id_fkey"><a href='organizaciones.html'>organizaciones</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">organizaciones_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="profesores.persona_id references personas.persona_id via profesores_persona_id_fkey"><a href='profesores.html'>profesores</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">profesores_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="telefonos.persona_id references personas.persona_id via telefonos_persona_id_fkey"><a href='telefonos.html'>telefonos</a><span class='relatedKey'>.persona_id</span></td>
+                                                <td class="constraint detail">telefonos_persona_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -218,7 +238,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-11 15:52:27.196-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:32.101-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -235,7 +255,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-11 15:52:27.196-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:32.101-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -312,8 +332,6 @@
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
                                     <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
-                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
-                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
@@ -323,14 +341,6 @@
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/personas.2degrees.svg" class="diagram" border="0" align="left"></object></a>
-                                    </div>
-                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        
-                                        <a name='diagram'><object type="image/svg+xml" id="oneimpliedDegreeImg" data="../diagrams/tables/personas.implied1degrees.svg" class="diagram" border="0" align="left"></object></a>
-                                    </div>
-                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        
-                                        <a name='diagram'><object type="image/svg+xml" id="twoimpliedDegreeImg" data="../diagrams/tables/personas.implied2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
                             </div>

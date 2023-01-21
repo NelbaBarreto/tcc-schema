@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>cursos</h1><p><span id="recordNumber">0</span> rows</p><br />
+                    <h1>cursos</h1><p><span id="recordNumber">1</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -112,8 +112,20 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="leads.curso_id&#39;s name implies that it&#39;s a child of cursos.curso_id, but it doesn&#39;t reference that column."><a href='leads.html'>leads</a><span class='relatedKey'>.curso_id</span></td>
-                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="ciclo_aulas.curso_id references cursos.curso_id via ciclo_aulas_curso_id_fkey"><a href='ciclo_aulas.html'>ciclo_aulas</a><span class='relatedKey'>.curso_id</span></td>
+                                                <td class="constraint detail">ciclo_aulas_curso_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="curso_ciclos.curso_id references cursos.curso_id via curso_ciclos_curso_id_fkey"><a href='curso_ciclos.html'>curso_ciclos</a><span class='relatedKey'>.curso_id</span></td>
+                                                <td class="constraint detail">curso_ciclos_curso_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="leads.curso_id references cursos.curso_id via leads_curso_id_fkey"><a href='leads.html'>leads</a><span class='relatedKey'>.curso_id</span></td>
+                                                <td class="constraint detail">leads_curso_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="oportunidades.curso_id references cursos.curso_id via oportunidades_curso_id_fkey"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.curso_id</span></td>
+                                                <td class="constraint detail">oportunidades_curso_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -121,12 +133,29 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Identificador único del curso.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="nombre">nombre</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Nombre del curso.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="descripcion">descripcion</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -138,7 +167,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Reseña del curso.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="usu_insercion">usu_insercion</span></td>
@@ -163,7 +192,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-25 21:56:26.293-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:33.587-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -180,7 +209,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-25 21:56:26.293-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:33.587-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -256,21 +285,16 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
-                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
-                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/cursos.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
-                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
-                                        <a name='diagram'><object type="image/svg+xml" id="oneimpliedDegreeImg" data="../diagrams/tables/cursos.implied1degrees.svg" class="diagram" border="0" align="left"></object></a>
-                                    </div>
-                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        
-                                        <a name='diagram'><object type="image/svg+xml" id="twoimpliedDegreeImg" data="../diagrams/tables/cursos.implied2degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/cursos.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
                             </div>

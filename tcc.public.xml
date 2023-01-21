@@ -2,73 +2,199 @@
 <database name="tcc" schema="public" type="PostgreSQL - 14.3">
    <sequences>
       <sequence increment="1" name="campanas_campana_id_seq" startValue="1"/>
+      <sequence increment="1" name="casos_caso_id_seq" startValue="1"/>
+      <sequence increment="1" name="ciclo_aulas_aula_id_seq" startValue="1"/>
+      <sequence increment="1" name="ciclo_profesores_ciclo_profesor_id_seq" startValue="1"/>
       <sequence increment="1" name="ciudades_ciudad_id_seq" startValue="1"/>
+      <sequence increment="1" name="contactos_contacto_id_seq" startValue="1"/>
+      <sequence increment="1" name="curso_ciclos_ciclo_id_seq" startValue="1"/>
       <sequence increment="1" name="cursos_curso_id_seq" startValue="1"/>
       <sequence increment="1" name="direcciones_direccion_id_seq" startValue="1"/>
       <sequence increment="1" name="empleados_empleado_id_seq" startValue="1"/>
+      <sequence increment="1" name="encuesta_pregunta_opciones_opcion_id_seq" startValue="1"/>
+      <sequence increment="1" name="encuesta_pregunta_respuestas_pregunta_respuesta_id_seq" startValue="1"/>
+      <sequence increment="1" name="encuesta_preguntas_pregunta_id_seq" startValue="1"/>
+      <sequence increment="1" name="encuesta_respuestas_respuesta_id_seq" startValue="1"/>
       <sequence increment="1" name="leads_lead_id_seq" startValue="1"/>
+      <sequence increment="1" name="llamadas_llamada_id_seq" startValue="1"/>
+      <sequence increment="1" name="oportunidades_oportunidad_id_seq" startValue="1"/>
+      <sequence increment="1" name="organizaciones_organizacion_id_seq" startValue="1"/>
       <sequence increment="1" name="paises_pais_id_seq" startValue="1"/>
       <sequence increment="1" name="personas_persona_id_seq" startValue="1"/>
+      <sequence increment="1" name="profesores_profesor_id_seq" startValue="1"/>
+      <sequence increment="1" name="roles_rol_id_seq" startValue="1"/>
+      <sequence increment="1" name="sedes_sede_id_seq" startValue="1"/>
+      <sequence increment="1" name="tareas_tarea_id_seq" startValue="1"/>
+      <sequence increment="1" name="telefonos_telefono_id_seq" startValue="1"/>
       <sequence increment="1" name="tip_campanas_tipo_campana_id_seq" startValue="1"/>
       <sequence increment="1" name="usuarios_usuario_id_seq" startValue="1"/>
    </sequences>
    <tables>
       <table name="campana_tipos" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="campana_id" nullable="false" remarks="Id de la campaña." size="10" type="int4" typeCode="4">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="campana_id" nullable="false" remarks="Identificador único de la campaña." size="10" type="int4" typeCode="4">
             <parent column="campana_id" foreignKey="campana_tipos_campana_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="tip_campana_id" nullable="false" remarks="Id del tipo campaña." size="10" type="int4" typeCode="4">
             <parent column="campana_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="campanas"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.466-04'::timestamp with time zone" digits="6" id="3" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.466-04'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.321-03'::timestamp with time zone" digits="6" id="3" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.321-03'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
       </table>
-      <table name="campanas" numRows="4" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('campanas_campana_id_seq'::regclass)" digits="0" id="0" name="campana_id" nullable="false" remarks="Identificador único de la campana." size="10" type="serial" typeCode="4">
+      <table name="campanas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('campanas_campana_id_seq'::regclass)" digits="0" id="0" name="campana_id" nullable="false" remarks="Identificador único de la campaña." size="10" type="serial" typeCode="4">
             <child column="campana_id" foreignKey="campana_tipos_campana_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="campana_tipos"/>
             <child column="tip_campana_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="campana_tipos"/>
-            <child column="campana_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="leads"/>
+            <child column="campana_id" foreignKey="leads_campana_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="leads"/>
+            <child column="campana_id" foreignKey="oportunidades_campana_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="" size="1000" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="fec_inicio" nullable="false" remarks="Fecha de inicio de la campana." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="fec_fin" nullable="false" remarks="Fecha del fin de la campana." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.379-04'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.379-04'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre de la campaña." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="Descripción de la campaña." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="fec_inicio" nullable="false" remarks="Fecha de inicio de la campaña." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="fec_fin" nullable="false" remarks="Fecha del fin de la campaña." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.991-03'::timestamp with time zone" digits="6" id="6" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.991-03'::timestamp with time zone" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="campana_id" sequenceNumberInPK="1"/>
          <index name="campanas_pkey" unique="true">
             <column ascending="true" name="campana_id"/>
+         </index>
+      </table>
+      <table name="casos" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('casos_caso_id_seq'::regclass)" digits="0" id="0" name="caso_id" nullable="false" remarks="Identificador único del caso." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="asunto" nullable="false" remarks="Título del caso." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="false" remarks="Descripción del caso." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="prioridad" nullable="false" remarks="Prioridad del caso." size="2147483647" type="enum_casos_prioridad" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="estado" nullable="false" remarks="Estado del caso." size="2147483647" type="enum_casos_estado" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tipo" nullable="true" remarks="Tipo de caso." size="2147483647" type="enum_casos_tipo" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="origen" nullable="false" remarks="Origen del caso." size="2147483647" type="enum_casos_origen" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="solucion" nullable="true" remarks="Descripción de como se solucionó el caso." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_asignado_id" nullable="true" remarks="Id de usuario asignado." size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="casos_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.117-03'::timestamp with time zone" digits="6" id="10" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.117-03'::timestamp with time zone" digits="6" id="11" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="caso_id" sequenceNumberInPK="1"/>
+         <index name="casos_pkey" unique="true">
+            <column ascending="true" name="caso_id"/>
+         </index>
+      </table>
+      <table name="ciclo_aulas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('ciclo_aulas_aula_id_seq'::regclass)" digits="0" id="0" name="aula_id" nullable="false" remarks="Identificador único del aula." size="10" type="serial" typeCode="4">
+            <child column="aula_id" foreignKey="ciclo_profesores_aula_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_profesores"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="hor_inicio" nullable="false" remarks="Hora de inicio de la clase." size="15" type="time" typeCode="92"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="hor_fin" nullable="false" remarks="Hora de fin de la clase." size="15" type="time" typeCode="92"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="dias" nullable="true" remarks="Días en los que se desarrollan las clases." size="2147483647" type="_text" typeCode="2003"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="cupo_total" nullable="true" remarks="Cantidad tope de alumnos." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="sede_id" nullable="false" remarks="Sede en la que está ubicada el aula." size="10" type="int4" typeCode="4">
+            <parent column="sede_id" foreignKey="ciclo_aulas_sede_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="sedes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="ciclo_id" nullable="false" remarks="Ciclo para el cual va a ser utilizado el aula." size="10" type="int4" typeCode="4">
+            <parent column="ciclo_id" foreignKey="ciclo_aulas_ciclo_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="curso_ciclos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="curso_id" nullable="false" remarks="Id del curso al que pertenece el ciclo." size="10" type="int4" typeCode="4">
+            <parent column="curso_id" foreignKey="ciclo_aulas_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="cursos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.992-03'::timestamp with time zone" digits="6" id="8" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="aula_id" sequenceNumberInPK="1"/>
+         <index name="ciclo_aulas_pkey" unique="true">
+            <column ascending="true" name="aula_id"/>
+         </index>
+      </table>
+      <table name="ciclo_profesores" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('ciclo_profesores_ciclo_profesor_id_seq'::regclass)" digits="0" id="0" name="ciclo_profesor_id" nullable="false" remarks="Identificador único del registro." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="profesor_id" nullable="true" remarks="Profesor encargado del aula." size="10" type="int4" typeCode="4">
+            <parent column="profesor_id" foreignKey="ciclo_profesores_profesor_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="profesores"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ciclo_id" nullable="true" remarks="Ciclo al que pertenecen el aula y profesor." size="10" type="int4" typeCode="4">
+            <parent column="ciclo_id" foreignKey="ciclo_profesores_ciclo_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="curso_ciclos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="aula_id" nullable="true" remarks="Identificador único del aula en la quese desarrollarán las clases." size="10" type="int4" typeCode="4">
+            <parent column="aula_id" foreignKey="ciclo_profesores_aula_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_aulas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:36.124-03'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="ciclo_profesor_id" sequenceNumberInPK="1"/>
+         <index name="ciclo_profesores_pkey" unique="true">
+            <column ascending="true" name="ciclo_profesor_id"/>
          </index>
       </table>
       <table name="ciudades" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('ciudades_ciudad_id_seq'::regclass)" digits="0" id="0" name="ciudad_id" nullable="false" remarks="Identificador único de la ciudad." size="10" type="serial" typeCode="4">
             <child column="ciudad_id" foreignKey="direcciones_ciudad_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="direcciones"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre de la ciudad." size="1000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre de la ciudad." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pais_id" nullable="false" remarks="Id del país al que pertenece la ciudad." size="10" type="int4" typeCode="4">
             <parent column="pais_id" foreignKey="ciudades_pais_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="paises"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.05-04'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.05-04'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.802-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.802-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="ciudad_id" sequenceNumberInPK="1"/>
          <index name="ciudades_pkey" unique="true">
             <column ascending="true" name="ciudad_id"/>
          </index>
       </table>
-      <table name="cursos" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('cursos_curso_id_seq'::regclass)" digits="0" id="0" name="curso_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
-            <child column="curso_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="leads"/>
+      <table name="contactos" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('contactos_contacto_id_seq'::regclass)" digits="0" id="0" name="contacto_id" nullable="false" remarks="Identificador único del contacto." size="10" type="serial" typeCode="4">
+            <child column="contacto_id" foreignKey="encuesta_respuestas_contacto_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_respuestas"/>
+            <child column="contacto_id" foreignKey="oportunidades_contacto_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:56:26.293-04'::timestamp with time zone" digits="6" id="3" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:56:26.293-04'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="Id de persona del contacto." size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="contactos_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="organizacion_id" nullable="true" remarks="Id de la organización a la que pertenece el contacto." size="10" type="int4" typeCode="4">
+            <parent column="organizacion_id" foreignKey="contactos_organizacion_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="organizaciones"/>
+         </column>
+         <column autoUpdated="false" defaultValue="'Otro'::enum_contactos_origen" digits="0" id="3" name="origen" nullable="false" remarks="Origen del lead." size="2147483647" type="enum_contactos_origen" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.395-03'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.395-03'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="contacto_id" sequenceNumberInPK="1"/>
+         <index name="contactos_pkey" unique="true">
+            <column ascending="true" name="contacto_id"/>
+         </index>
+      </table>
+      <table name="curso_ciclos" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('curso_ciclos_ciclo_id_seq'::regclass)" digits="0" id="0" name="ciclo_id" nullable="false" remarks="Identificador único del ciclo." size="10" type="serial" typeCode="4">
+            <child column="ciclo_id" foreignKey="ciclo_aulas_ciclo_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_aulas"/>
+            <child column="ciclo_id" foreignKey="ciclo_profesores_ciclo_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_profesores"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="curso_id" nullable="false" remarks="Id del curso al que pertenece el ciclo." size="10" type="int4" typeCode="4">
+            <parent column="curso_id" foreignKey="curso_ciclos_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="cursos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nivel" nullable="true" remarks="Nivel del curso (Básico, Intermedio, Avanzado, etc)." size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="fec_inicio" nullable="true" remarks="Fecha en la que inicia el ciclo." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="fec_fin" nullable="true" remarks="Fecha de finalización del ciclo." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="meses" nullable="true" remarks="Meses que dura el ciclo." size="2147483647" type="_text" typeCode="2003"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.859-03'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="ciclo_id" sequenceNumberInPK="1"/>
+         <index name="curso_ciclos_pkey" unique="true">
+            <column ascending="true" name="ciclo_id"/>
+         </index>
+      </table>
+      <table name="cursos" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('cursos_curso_id_seq'::regclass)" digits="0" id="0" name="curso_id" nullable="false" remarks="Identificador único del curso." size="10" type="serial" typeCode="4">
+            <child column="curso_id" foreignKey="ciclo_aulas_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_aulas"/>
+            <child column="curso_id" foreignKey="curso_ciclos_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="curso_ciclos"/>
+            <child column="curso_id" foreignKey="leads_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="leads"/>
+            <child column="curso_id" foreignKey="oportunidades_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre del curso." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="Reseña del curso." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.587-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.587-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="curso_id" sequenceNumberInPK="1"/>
          <index name="cursos_pkey" unique="true">
             <column ascending="true" name="curso_id"/>
@@ -76,21 +202,25 @@
       </table>
       <table name="direcciones" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('direcciones_direccion_id_seq'::regclass)" digits="0" id="0" name="direccion_id" nullable="false" remarks="Identificador único de la dirección." size="10" type="serial" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="calle_1" nullable="false" remarks="Calle principal." size="1000" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="calle_2" nullable="true" remarks="Calle secundaria." size="1000" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="referencia_id" nullable="false" remarks="Id referencia de la dirección." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="calle_1" nullable="false" remarks="Calle principal." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="calle_2" nullable="true" remarks="Calle secundaria." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="persona_id" nullable="true" remarks="Id de persona a la que pertenece la dirección." size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="direcciones_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="cod_postal" nullable="true" remarks="Código postal de la dirección." size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tip_referencia" nullable="true" remarks="Tipo de referencia de la dirección" size="2147483647" type="enum_direcciones_tip_referencia" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="tipo" nullable="true" remarks="Tipo de dirección" size="2147483647" type="enum_direcciones_tipo" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="referencia" nullable="true" remarks="Referencia a la dirección." size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="ciudad_id" nullable="false" remarks="Id de la ciudad al que pertenece la dirección." size="10" type="int4" typeCode="4">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tipo" nullable="true" remarks="Tipo de dirección" size="2147483647" type="enum_direcciones_tipo" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="referencia" nullable="true" remarks="Referencia a la dirección." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="ciudad_id" nullable="true" remarks="Id de la ciudad al que pertenece la dirección." size="10" type="int4" typeCode="4">
             <parent column="ciudad_id" foreignKey="direcciones_ciudad_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciudades"/>
          </column>
-         <column autoUpdated="false" defaultValue="false" digits="0" id="9" name="principal" nullable="false" remarks="Indica si la dirección es o no la principal en el sistema." size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.236-04'::timestamp with time zone" digits="6" id="11" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.236-04'::timestamp with time zone" digits="6" id="12" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="8" name="principal" nullable="false" remarks="Indica si la dirección es o no la principal en el sistema." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.877-03'::timestamp with time zone" digits="6" id="10" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.877-03'::timestamp with time zone" digits="6" id="11" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="sede_id" nullable="true" remarks="Id de la sede al que pertenece la dirección." size="10" type="int4" typeCode="4">
+            <parent column="sede_id" foreignKey="direcciones_sede_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="sedes"/>
+         </column>
          <primaryKey column="direccion_id" sequenceNumberInPK="1"/>
          <index name="direcciones_pkey" unique="true">
             <column ascending="true" name="direccion_id"/>
@@ -105,107 +235,327 @@
             <parent column="usuario_id" foreignKey="empleados_usuario_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
          </column>
          <column autoUpdated="false" defaultValue="false" digits="0" id="3" name="activo" nullable="false" remarks="Indica si el usuario está activo o inactivo en el sistema." size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:50.598-04'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:50.598-04'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="cargo" nullable="true" remarks="Cargo que ocupa el empleado." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.507-03'::timestamp with time zone" digits="6" id="6" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.507-03'::timestamp with time zone" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="empleado_id" sequenceNumberInPK="1"/>
          <index name="empleados_pkey" unique="true">
             <column ascending="true" name="empleado_id"/>
          </index>
       </table>
+      <table name="encuesta_pregunta_opciones" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('encuesta_pregunta_opciones_opcion_id_seq'::regclass)" digits="0" id="0" name="opcion_id" nullable="false" remarks="Identificador único de la opción." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pregunta_id" nullable="false" remarks="Id de la pregunta a la que pertenece la opción." size="10" type="int4" typeCode="4">
+            <parent column="pregunta_id" foreignKey="encuesta_pregunta_opciones_pregunta_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_preguntas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="etiqueta" nullable="true" remarks="Etiqueta de la opción." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="valor" nullable="true" remarks="Valor de la opción." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.405-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.405-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="opcion_id" sequenceNumberInPK="1"/>
+         <index name="encuesta_pregunta_opciones_pkey" unique="true">
+            <column ascending="true" name="opcion_id"/>
+         </index>
+      </table>
+      <table name="encuesta_pregunta_respuestas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('encuesta_pregunta_respuestas_pregunta_respuesta_id_seq'::regclass)" digits="0" id="0" name="pregunta_respuesta_id" nullable="false" remarks="Identificador único de la respuesta." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="respuesta_id" nullable="false" remarks="Id de la cabecera de la respuesta." size="10" type="int4" typeCode="4">
+            <parent column="respuesta_id" foreignKey="encuesta_pregunta_respuestas_respuesta_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_respuestas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pregunta_id" nullable="false" remarks="Id de la pregunta a la que pertenece la respuesta." size="10" type="int4" typeCode="4">
+            <parent column="pregunta_id" foreignKey="encuesta_pregunta_respuestas_pregunta_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_preguntas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="valor" nullable="false" remarks="Valor de la respuesta." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.699-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.699-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="pregunta_respuesta_id" sequenceNumberInPK="1"/>
+         <index name="encuesta_pregunta_respuestas_pkey" unique="true">
+            <column ascending="true" name="pregunta_respuesta_id"/>
+         </index>
+      </table>
+      <table name="encuesta_preguntas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('encuesta_preguntas_pregunta_id_seq'::regclass)" digits="0" id="0" name="pregunta_id" nullable="false" remarks="Identificador único de la pregunta." size="10" type="serial" typeCode="4">
+            <child column="pregunta_id" foreignKey="encuesta_pregunta_opciones_pregunta_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_pregunta_opciones"/>
+            <child column="pregunta_id" foreignKey="encuesta_pregunta_respuestas_pregunta_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_pregunta_respuestas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pregunta" nullable="false" remarks="Pregunta a mostrarse en la encuesta de satisfacción." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="2" name="obligatorio" nullable="true" remarks="Indica si es obligatorio responder la pregunta." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.325-03'::timestamp with time zone" digits="6" id="3" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.325-03'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="pregunta_id" sequenceNumberInPK="1"/>
+         <index name="encuesta_preguntas_pkey" unique="true">
+            <column ascending="true" name="pregunta_id"/>
+         </index>
+      </table>
+      <table name="encuesta_respuestas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('encuesta_respuestas_respuesta_id_seq'::regclass)" digits="0" id="0" name="respuesta_id" nullable="false" remarks="Identificador único de la respuessta." size="10" type="serial" typeCode="4">
+            <child column="respuesta_id" foreignKey="encuesta_pregunta_respuestas_respuesta_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_pregunta_respuestas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="oportunidad_id" nullable="false" remarks="Oportunidad a la que está asociada la respuesta." size="10" type="int4" typeCode="4">
+            <parent column="oportunidad_id" foreignKey="encuesta_respuestas_oportunidad_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="contacto_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="contacto_id" foreignKey="encuesta_respuestas_contacto_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="json" nullable="false" remarks="Almacena el valor de las preguntas y respuestasal momento del envío." size="2147483647" type="json" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.488-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.488-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="respuesta_id" sequenceNumberInPK="1"/>
+         <index name="encuesta_respuestas_pkey" unique="true">
+            <column ascending="true" name="respuesta_id"/>
+         </index>
+      </table>
       <table name="leads" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('leads_lead_id_seq'::regclass)" digits="0" id="0" name="lead_id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="estado" nullable="true" remarks="Estado del lead" size="2147483647" type="enum_leads_estado" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_asignado_id" nullable="false" remarks="Id del usuario asignado al lead." size="10" type="int4" typeCode="4">
+         <column autoUpdated="true" defaultValue="nextval('leads_lead_id_seq'::regclass)" digits="0" id="0" name="lead_id" nullable="false" remarks="Identificador único del lead." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="estado" nullable="false" remarks="Estado del lead." size="2147483647" type="enum_leads_estado" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_asignado_id" nullable="true" remarks="Id del usuario asignado al lead." size="10" type="int4" typeCode="4">
             <parent column="usuario_id" foreignKey="leads_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="campana_id" nullable="false" remarks="Id de campaña del lead." size="10" type="int4" typeCode="4">
-            <parent column="campana_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="campanas"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="campana_id" nullable="true" remarks="Campaña por la cual se consiguió el lead." size="10" type="int4" typeCode="4">
+            <parent column="campana_id" foreignKey="leads_campana_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="origen" nullable="true" remarks="Origen del lead" size="2147483647" type="enum_leads_origen" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'Otro'::enum_leads_origen" digits="0" id="4" name="origen" nullable="false" remarks="Origen del lead." size="2147483647" type="enum_leads_origen" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="persona_id" nullable="false" remarks="Id de persona del lead." size="10" type="int4" typeCode="4">
             <parent column="persona_id" foreignKey="leads_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="curso_id" nullable="false" remarks="Id del curso del lead." size="10" type="int4" typeCode="4">
-            <parent column="curso_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="cursos"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.461-03'::timestamp with time zone" digits="6" id="7" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.461-03'::timestamp with time zone" digits="6" id="8" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="curso_id" nullable="false" remarks="Id del curso en el que está interesado el lead." size="10" type="int4" typeCode="4">
+            <parent column="curso_id" foreignKey="leads_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="cursos"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:56:26.144-04'::timestamp with time zone" digits="6" id="8" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:56:26.144-04'::timestamp with time zone" digits="6" id="9" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="lead_id" sequenceNumberInPK="1"/>
          <index name="leads_pkey" unique="true">
             <column ascending="true" name="lead_id"/>
+         </index>
+      </table>
+      <table name="llamadas" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('llamadas_llamada_id_seq'::regclass)" digits="0" id="0" name="llamada_id" nullable="false" remarks="Identificador único de la llamada." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="asunto" nullable="false" remarks="Asunto de la llamada." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="estado" nullable="false" remarks="Estado de la llamada" size="2147483647" type="enum_llamadas_estado" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="tipo" nullable="false" remarks="Tipos de llamadas." size="2147483647" type="enum_llamadas_tipo" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="fec_inicio" nullable="false" remarks="Fecha de inicio de la actividad." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="descripcion" nullable="true" remarks="Descripción de la llamada." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.139-03'::timestamp with time zone" digits="6" id="7" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:35.139-03'::timestamp with time zone" digits="6" id="8" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="llamada_id" sequenceNumberInPK="1"/>
+         <index name="llamadas_pkey" unique="true">
+            <column ascending="true" name="llamada_id"/>
+         </index>
+      </table>
+      <table name="oportunidades" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('oportunidades_oportunidad_id_seq'::regclass)" digits="0" id="0" name="oportunidad_id" nullable="false" remarks="Identificador único de la oportunidad." size="10" type="serial" typeCode="4">
+            <child column="oportunidad_id" foreignKey="encuesta_respuestas_oportunidad_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="encuesta_respuestas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="campana_id" nullable="true" remarks="Campaña por la cual se consiguió la oportunidad." size="10" type="int4" typeCode="4">
+            <parent column="campana_id" foreignKey="oportunidades_campana_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="campanas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="contacto_id" nullable="false" remarks="Id del contacto asociado a la oportunidad." size="10" type="int4" typeCode="4">
+            <parent column="contacto_id" foreignKey="oportunidades_contacto_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="curso_id" nullable="false" remarks="Curso en el cual está interesado el contacto." size="10" type="int4" typeCode="4">
+            <parent column="curso_id" foreignKey="oportunidades_curso_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="cursos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_asignado_id" nullable="true" remarks="Id de usuario asignado." size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="oportunidades_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valor" nullable="false" remarks="Valor estimado de la oportunidad." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="descripcion" nullable="true" remarks="Descripción de la oportunidad." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="etapa" nullable="false" remarks="Etapas de una oportunidad." size="2147483647" type="enum_oportunidades_etapa" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.478-03'::timestamp with time zone" digits="6" id="10" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.478-03'::timestamp with time zone" digits="6" id="11" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="13" name="encuesta" nullable="true" remarks="Indica si la encuesta de satisfacciónasociada ya fue completada." size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="oportunidad_id" sequenceNumberInPK="1"/>
+         <index name="oportunidades_pkey" unique="true">
+            <column ascending="true" name="oportunidad_id"/>
+         </index>
+      </table>
+      <table name="organizaciones" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('organizaciones_organizacion_id_seq'::regclass)" digits="0" id="0" name="organizacion_id" nullable="false" remarks="Identificador único de la organización." size="10" type="serial" typeCode="4">
+            <child column="organizacion_id" foreignKey="contactos_organizacion_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="Id de persona de la organización." size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="organizaciones_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="Descripción de la organización." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="website" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.277-03'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.277-03'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="organizacion_id" sequenceNumberInPK="1"/>
+         <index name="organizaciones_pkey" unique="true">
+            <column ascending="true" name="organizacion_id"/>
          </index>
       </table>
       <table name="paises" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('paises_pais_id_seq'::regclass)" digits="0" id="0" name="pais_id" nullable="false" remarks="Identificador único del país." size="10" type="serial" typeCode="4">
             <child column="pais_id" foreignKey="ciudades_pais_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciudades"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre del país." size="1000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre del país." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nom_corto" nullable="false" remarks="Nombre corto del país." size="10" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="cod_telefono" nullable="false" remarks="Prefijo para llamadas internacionales." size="10" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:50.93-04'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:50.93-04'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.624-03'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.624-03'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="pais_id" sequenceNumberInPK="1"/>
          <index name="paises_pkey" unique="true">
             <column ascending="true" name="pais_id"/>
          </index>
       </table>
-      <table name="personas" numRows="22" remarks="" schema="public" type="TABLE">
+      <table name="personas" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('personas_persona_id_seq'::regclass)" digits="0" id="0" name="persona_id" nullable="false" remarks="Identificador único de la persona." size="10" type="serial" typeCode="4">
+            <child column="persona_id" foreignKey="contactos_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contactos"/>
+            <child column="persona_id" foreignKey="direcciones_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="direcciones"/>
             <child column="persona_id" foreignKey="empleados_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="empleados"/>
             <child column="persona_id" foreignKey="leads_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="leads"/>
+            <child column="persona_id" foreignKey="organizaciones_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="organizaciones"/>
+            <child column="persona_id" foreignKey="profesores_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="profesores"/>
+            <child column="persona_id" foreignKey="telefonos_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="telefonos"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre y apellido de la persona o nombre comercial de la organización." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="email" nullable="true" remarks="Dirección de correo de la persona." size="60" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="nro_documento" nullable="true" remarks="Número de documento de la persona." size="20" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="tip_documento" nullable="true" remarks="Tipo de documento de la persona (CI, RUC, etc.)." size="2147483647" type="enum_personas_tip_documento" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-11 15:52:27.196-04'::timestamp with time zone" digits="6" id="6" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-11 15:52:27.196-04'::timestamp with time zone" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.101-03'::timestamp with time zone" digits="6" id="6" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.101-03'::timestamp with time zone" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="persona_id" sequenceNumberInPK="1"/>
          <index name="personas_pkey" unique="true">
             <column ascending="true" name="persona_id"/>
          </index>
       </table>
-      <table name="SequelizeMeta" numRows="11" remarks="" schema="public" type="TABLE">
+      <table name="profesores" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('profesores_profesor_id_seq'::regclass)" digits="0" id="0" name="profesor_id" nullable="false" remarks="Identificador único del profesor." size="10" type="serial" typeCode="4">
+            <child column="profesor_id" foreignKey="ciclo_profesores_profesor_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_profesores"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="false" remarks="Id de persona del profesor." size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="profesores_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.663-03'::timestamp with time zone" digits="6" id="3" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.663-03'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="profesor_id" sequenceNumberInPK="1"/>
+         <index name="profesores_pkey" unique="true">
+            <column ascending="true" name="profesor_id"/>
+         </index>
+      </table>
+      <table name="roles" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('roles_rol_id_seq'::regclass)" digits="0" id="0" name="rol_id" nullable="false" remarks="Identificador único del rol." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre del rol." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="Descripción del rol." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.851-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.851-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="rol_id" sequenceNumberInPK="1"/>
+         <index name="roles_pkey" unique="true">
+            <column ascending="true" name="rol_id"/>
+         </index>
+      </table>
+      <table name="sedes" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sedes_sede_id_seq'::regclass)" digits="0" id="0" name="sede_id" nullable="false" remarks="Identificador único de la sede." size="10" type="serial" typeCode="4">
+            <child column="sede_id" foreignKey="ciclo_aulas_sede_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="ciclo_aulas"/>
+            <child column="sede_id" foreignKey="direcciones_sede_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="direcciones"/>
+            <child column="sede_id" foreignKey="telefonos_sede_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="telefonos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre de la sede." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.033-03'::timestamp with time zone" digits="6" id="3" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.033-03'::timestamp with time zone" digits="6" id="4" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="sede_id" sequenceNumberInPK="1"/>
+         <index name="sedes_pkey" unique="true">
+            <column ascending="true" name="sede_id"/>
+         </index>
+      </table>
+      <table name="SequelizeMeta" numRows="31" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
          <primaryKey column="name" sequenceNumberInPK="1"/>
          <index name="SequelizeMeta_pkey" unique="true">
             <column ascending="true" name="name"/>
          </index>
       </table>
+      <table name="tareas" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tareas_tarea_id_seq'::regclass)" digits="0" id="0" name="tarea_id" nullable="false" remarks="Identificador único de la tarea." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="asunto" nullable="false" remarks="Título de la tarea." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="descripcion" nullable="true" remarks="Descripción de la tarea." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="estado" nullable="false" remarks="Estado del Caso" size="2147483647" type="enum_tareas_estado" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="prioridad" nullable="false" remarks="Prioridad de la tarea." size="2147483647" type="enum_tareas_prioridad" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="fec_inicio" nullable="false" remarks="Fecha de inicio de la actividad." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="fec_fin" nullable="true" remarks="Fecha prevista de finalización de la actividad." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_asignado_id" nullable="true" remarks="Id de usuario asignado." size="10" type="int4" typeCode="4">
+            <parent column="usuario_id" foreignKey="tareas_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="usuarios"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.638-03'::timestamp with time zone" digits="6" id="9" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.638-03'::timestamp with time zone" digits="6" id="10" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="tarea_id" sequenceNumberInPK="1"/>
+         <index name="tareas_pkey" unique="true">
+            <column ascending="true" name="tarea_id"/>
+         </index>
+      </table>
+      <table name="telefonos" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('telefonos_telefono_id_seq'::regclass)" digits="0" id="0" name="telefono_id" nullable="false" remarks="Identificador único del teléfono." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="persona_id" nullable="true" remarks="Id de persona a la que pertenece la dirección." size="10" type="int4" typeCode="4">
+            <parent column="persona_id" foreignKey="telefonos_persona_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="personas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sede_id" nullable="true" remarks="Id de la sede a la que pertenece el teléfono." size="10" type="int4" typeCode="4">
+            <parent column="sede_id" foreignKey="telefonos_sede_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="sedes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="tipo" nullable="false" remarks="Tipo de teléfono." size="2147483647" type="enum_telefonos_tipo" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="4" name="principal" nullable="false" remarks="Indica si el teléfono es o no el principal en el sistema." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="numero" nullable="false" remarks="Número de teléfono." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="comentario" nullable="true" remarks="Comentario adicional acerca del teléfono." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.761-03'::timestamp with time zone" digits="6" id="8" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:34.761-03'::timestamp with time zone" digits="6" id="9" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="telefono_id" sequenceNumberInPK="1"/>
+         <index name="telefonos_pkey" unique="true">
+            <column ascending="true" name="telefono_id"/>
+         </index>
+      </table>
       <table name="tip_campanas" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('tip_campanas_tipo_campana_id_seq'::regclass)" digits="0" id="0" name="tipo_campana_id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="" size="1000" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="false" digits="0" id="2" name="activo" nullable="false" remarks="Indica el estado del tipo campana." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="true" defaultValue="nextval('tip_campanas_tipo_campana_id_seq'::regclass)" digits="0" id="0" name="tipo_campana_id" nullable="false" remarks="Identificador único del tipo de campaña." size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre" nullable="false" remarks="Nombre del tipo de campaña." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="2" name="activo" nullable="false" remarks="Indica si el tipo de campaña está activo/inactivo." size="1" type="bool" typeCode="-7"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.489-04'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-25 21:55:51.489-04'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.369-03'::timestamp with time zone" digits="6" id="4" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:33.369-03'::timestamp with time zone" digits="6" id="5" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="tipo_campana_id" sequenceNumberInPK="1"/>
          <index name="tip_campanas_pkey" unique="true">
             <column ascending="true" name="tipo_campana_id"/>
          </index>
       </table>
-      <table name="usuarios" numRows="2" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('usuarios_usuario_id_seq'::regclass)" digits="0" id="0" name="usuario_id" nullable="false" remarks="Id del usuario." size="10" type="serial" typeCode="4">
+      <table name="usuarios" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('usuarios_usuario_id_seq'::regclass)" digits="0" id="0" name="usuario_id" nullable="false" remarks="Identificador único del usuario." size="10" type="serial" typeCode="4">
+            <child column="usu_asignado_id" foreignKey="casos_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="casos"/>
             <child column="usuario_id" foreignKey="empleados_usuario_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="empleados"/>
             <child column="usu_asignado_id" foreignKey="leads_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="leads"/>
+            <child column="usu_asignado_id" foreignKey="oportunidades_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="oportunidades"/>
+            <child column="usu_asignado_id" foreignKey="tareas_usu_asignado_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="tareas"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nom_usuario" nullable="false" remarks="Nombre de usuario en el sistema." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="true" digits="0" id="2" name="activo" nullable="false" remarks="Indica si el usuario está activo o inactivo en el sistema." size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="password" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="email" nullable="true" remarks="Dirección de correo del usuario." size="60" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="usu_insercion" nullable="true" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'2022-09-11 15:52:27.485-04'::timestamp with time zone" digits="6" id="6" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="'2022-09-11 15:52:27.485-04'::timestamp with time zone" digits="6" id="7" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="usu_modificacion" nullable="true" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="password" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="email" nullable="true" remarks="Dirección de correo del usuario." size="60" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="usu_insercion" nullable="false" remarks="Nombre del usuario que insertó el registro." size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.379-03'::timestamp with time zone" digits="6" id="5" name="fec_insercion" nullable="false" remarks="Fecha en la que se creó el registro." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'2023-01-19 22:48:32.379-03'::timestamp with time zone" digits="6" id="6" name="fec_modificacion" nullable="false" remarks="Fecha en la que se modificó el registro por última vez." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="usu_modificacion" nullable="false" remarks="Nombre del usuario que modificó el registro por última vez." size="20" type="varchar" typeCode="12"/>
          <primaryKey column="usuario_id" sequenceNumberInPK="1"/>
          <index name="usuarios_pkey" unique="true">
             <column ascending="true" name="usuario_id"/>

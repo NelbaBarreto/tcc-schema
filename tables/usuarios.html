@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>usuarios</h1><p><span id="recordNumber">2</span> rows</p><br />
+                    <h1>usuarios</h1><p><span id="recordNumber">0</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -112,6 +112,10 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
+                                                <td title="casos.usu_asignado_id references usuarios.usuario_id via casos_usu_asignado_id_fkey"><a href='casos.html'>casos</a><span class='relatedKey'>.usu_asignado_id</span></td>
+                                                <td class="constraint detail">casos_usu_asignado_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="empleados.usuario_id references usuarios.usuario_id via empleados_usuario_id_fkey"><a href='empleados.html'>empleados</a><span class='relatedKey'>.usuario_id</span></td>
                                                 <td class="constraint detail">empleados_usuario_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
@@ -119,13 +123,21 @@
                                                 <td title="leads.usu_asignado_id references usuarios.usuario_id via leads_usu_asignado_id_fkey"><a href='leads.html'>leads</a><span class='relatedKey'>.usu_asignado_id</span></td>
                                                 <td class="constraint detail">leads_usu_asignado_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
+                                            <tr>
+                                                <td title="oportunidades.usu_asignado_id references usuarios.usuario_id via oportunidades_usu_asignado_id_fkey"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.usu_asignado_id</span></td>
+                                                <td class="constraint detail">oportunidades_usu_asignado_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tareas.usu_asignado_id references usuarios.usuario_id via tareas_usu_asignado_id_fkey"><a href='tareas.html'>tareas</a><span class='relatedKey'>.usu_asignado_id</span></td>
+                                                <td class="constraint detail">tareas_usu_asignado_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Id del usuario.</p></td>
+                                    <td><p>Identificador único del usuario.</p></td>
                                 </tr>
                                 <tr>
                                     <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="nom_usuario">nom_usuario</span></td>
@@ -143,23 +155,6 @@
                                         </table>
                                     </td>
                                     <td><p>Nombre de usuario en el sistema.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="activo">activo</span></td>
-                                    <td>bool</td>
-                                    <td>1</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>true</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Indica si el usuario está activo o inactivo en el sistema.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="password">password</span></td>
@@ -199,7 +194,7 @@
                                     <td><span id="usu_insercion">usu_insercion</span></td>
                                     <td>varchar</td>
                                     <td>20</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -218,7 +213,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-11 15:52:27.485-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:32.379-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -235,7 +230,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-11 15:52:27.485-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:32.379-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -250,7 +245,7 @@
                                     <td><span id="usu_modificacion">usu_modificacion</span></td>
                                     <td>varchar</td>
                                     <td>20</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -318,8 +313,6 @@
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
                                     <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
-                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
-                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
@@ -329,14 +322,6 @@
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/usuarios.2degrees.svg" class="diagram" border="0" align="left"></object></a>
-                                    </div>
-                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        
-                                        <a name='diagram'><object type="image/svg+xml" id="oneimpliedDegreeImg" data="../diagrams/tables/usuarios.implied1degrees.svg" class="diagram" border="0" align="left"></object></a>
-                                    </div>
-                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        
-                                        <a name='diagram'><object type="image/svg+xml" id="twoimpliedDegreeImg" data="../diagrams/tables/usuarios.implied2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
                             </div>

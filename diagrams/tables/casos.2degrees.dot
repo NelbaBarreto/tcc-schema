@@ -18,144 +18,86 @@ digraph "twoDegreesRelationshipsDiagram" {
   edge [
     arrowsize="0.8"
   ];
-  "actividades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "actividades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "actividades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "actividades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "campanas":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "campanas":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "campanas":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "campanas":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "casos":"contacto_id":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "casos":"usu_asignado_id":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "casos":"usu_eliminacion_id":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "casos":"usu_insercion_id":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "casos":"usu_modificacion_id":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "contactos":"persona_id":w -> "personas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "contactos_oportunidades":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "contactos_oportunidades":"elipses":w -> "oportunidades":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "contactos_organizaciones":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "oportunidades":"elipses":w -> "campanas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
+  "empleados":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "leads":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "oportunidades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "oportunidades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "oportunidades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "oportunidades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "usuarios":"persona_id":w -> "personas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "actividades" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>actividades</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 4</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">2 &gt;</TD></TR>
-    </TABLE>>
-    URL="../../tables/actividades.html"
-    target="_top"
-    tooltip="actividades"
-  ];
-  "campanas" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>campanas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 4</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
-    </TABLE>>
-    URL="../../tables/campanas.html"
-    target="_top"
-    tooltip="campanas"
-  ];
+  "tareas":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "casos" [
    label=<
     <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="4"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>casos</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="caso_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">caso_id</TD></TR></TABLE></TD><TD PORT="caso_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="nombre" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">nombre</TD></TR></TABLE></TD><TD PORT="nombre.type" ALIGN="LEFT">varchar[120]</TD></TR>
-      <TR><TD PORT="descripcion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">descripcion</TD></TR></TABLE></TD><TD PORT="descripcion.type" ALIGN="LEFT">text[2147483647]</TD></TR>
-      <TR><TD PORT="prioridad" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">prioridad</TD></TR></TABLE></TD><TD PORT="prioridad.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="estado" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">estado</TD></TR></TABLE></TD><TD PORT="estado.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="tipo" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">tipo</TD></TR></TABLE></TD><TD PORT="tipo.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="origen" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">origen</TD></TR></TABLE></TD><TD PORT="origen.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="solucion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">solucion</TD></TR></TABLE></TD><TD PORT="solucion.type" ALIGN="LEFT">text[2147483647]</TD></TR>
-      <TR><TD PORT="contacto_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">contacto_id</TD></TR></TABLE></TD><TD PORT="contacto_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="fec_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">fec_insercion</TD></TR></TABLE></TD><TD PORT="fec_insercion.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
-      <TR><TD PORT="usu_insercion_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_insercion_id</TD></TR></TABLE></TD><TD PORT="usu_insercion_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="fec_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">fec_modificacion</TD></TR></TABLE></TD><TD PORT="fec_modificacion.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
-      <TR><TD PORT="usu_modificacion_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_modificacion_id</TD></TR></TABLE></TD><TD PORT="usu_modificacion_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="fec_eliminacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">fec_eliminacion</TD></TR></TABLE></TD><TD PORT="fec_eliminacion.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
-      <TR><TD PORT="usu_eliminacion_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_eliminacion_id</TD></TR></TABLE></TD><TD PORT="usu_eliminacion_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="usu_asignado_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_asignado_id</TD></TR></TABLE></TD><TD PORT="usu_asignado_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 5</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 &gt;</TD></TR>
+      <TR><TD PORT="caso_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">caso_id</TD></TR></TABLE></TD><TD PORT="caso_id.type" ALIGN="LEFT">serial[10]</TD></TR>
+      <TR><TD PORT="asunto" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">asunto</TD></TR></TABLE></TD><TD PORT="asunto.type" ALIGN="LEFT">varchar[255]</TD></TR>
+      <TR><TD PORT="descripcion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">descripcion</TD></TR></TABLE></TD><TD PORT="descripcion.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="prioridad" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">prioridad</TD></TR></TABLE></TD><TD PORT="prioridad.type" ALIGN="LEFT">enum_casos_prioridad[2147483647]</TD></TR>
+      <TR><TD PORT="estado" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">estado</TD></TR></TABLE></TD><TD PORT="estado.type" ALIGN="LEFT">enum_casos_estado[2147483647]</TD></TR>
+      <TR><TD PORT="tipo" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">tipo</TD></TR></TABLE></TD><TD PORT="tipo.type" ALIGN="LEFT">enum_casos_tipo[2147483647]</TD></TR>
+      <TR><TD PORT="origen" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">origen</TD></TR></TABLE></TD><TD PORT="origen.type" ALIGN="LEFT">enum_casos_origen[2147483647]</TD></TR>
+      <TR><TD PORT="solucion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">solucion</TD></TR></TABLE></TD><TD PORT="solucion.type" ALIGN="LEFT">varchar[255]</TD></TR>
+      <TR><TD PORT="usu_asignado_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_asignado_id</TD></TR></TABLE></TD><TD PORT="usu_asignado_id.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="usu_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_insercion</TD></TR></TABLE></TD><TD PORT="usu_insercion.type" ALIGN="LEFT">varchar[20]</TD></TR>
+      <TR><TD PORT="fec_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_insercion</TD></TR></TABLE></TD><TD PORT="fec_insercion.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
+      <TR><TD PORT="fec_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_modificacion</TD></TR></TABLE></TD><TD PORT="fec_modificacion.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
+      <TR><TD PORT="usu_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_modificacion</TD></TR></TABLE></TD><TD PORT="usu_modificacion.type" ALIGN="LEFT">varchar[20]</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 &gt;</TD></TR>
     </TABLE>>
     URL="../../tables/casos.html"
     target="_top"
     tooltip="casos"
   ];
-  "contactos" [
+  "empleados" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>contactos</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="contacto_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="67" HEIGHT="16">contacto_id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="persona_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="67" HEIGHT="16">persona_id</TD></TR></TABLE></TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">3 &gt;</TD></TR>
-    </TABLE>>
-    URL="../../tables/contactos.html"
-    target="_top"
-    tooltip="contactos"
-  ];
-  "contactos_oportunidades" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>contactos_oportunidades</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>empleados</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
       <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
-    URL="../../tables/contactos_oportunidades.html"
+    URL="../../tables/empleados.html"
     target="_top"
-    tooltip="contactos_oportunidades"
+    tooltip="empleados"
   ];
-  "contactos_organizaciones" [
+  "leads" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>contactos_organizaciones</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>leads</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 4</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
-    URL="../../tables/contactos_organizaciones.html"
+    URL="../../tables/leads.html"
     target="_top"
-    tooltip="contactos_organizaciones"
+    tooltip="leads"
   ];
   "oportunidades" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>oportunidades</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 5</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 4</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
     </TABLE>>
     URL="../../tables/oportunidades.html"
     target="_top"
     tooltip="oportunidades"
   ];
-  "personas" [
+  "tareas" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>personas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>tareas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">4 &gt;</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
-    URL="../../tables/personas.html"
+    URL="../../tables/tareas.html"
     target="_top"
-    tooltip="personas"
+    tooltip="tareas"
   ];
   "usuarios" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>usuarios</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="usuario_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usuario_id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="persona_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">persona_id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="usu_insercion_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_insercion_id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="usu_modificacion_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_modificacion_id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="usu_eliminacion_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="119" HEIGHT="16">usu_eliminacion_id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="usuario_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usuario_id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="nom_usuario" COLSPAN="3" BGCOLOR="#ffffff" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">nom_usuario</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 4</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">19 &gt;</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">5 &gt;</TD></TR>
     </TABLE>>
     URL="../../tables/usuarios.html"
     target="_top"

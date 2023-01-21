@@ -117,13 +117,13 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Identificador único del lead.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="estado">estado</span></td>
                                     <td>enum_leads_estado</td>
                                     <td>2147483647</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -134,13 +134,13 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Estado del lead</p></td>
+                                    <td><p>Estado del lead.</p></td>
                                 </tr>
                                 <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_asignado_id">usu_asignado_id</span></td>
                                     <td>int4</td>
                                     <td>10</td>
-                                    <td title=''></td>
+                                    <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -161,27 +161,6 @@
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="campana_id">campana_id</span></td>
                                     <td>int4</td>
                                     <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="leads.campana_id&#39;s name implies that it&#39;s a child of campanas.campana_id, but it doesn&#39;t reference that column."><a href='campanas.html'>campanas</a><span class='relatedKey'>.campana_id</span></td>
-                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td><p>Id de campaña del lead.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="origen">origen</span></td>
-                                    <td>enum_leads_origen</td>
-                                    <td>2147483647</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -191,9 +170,30 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="leads.campana_id references campanas.campana_id via leads_campana_id_fkey"><a href='campanas.html'>campanas</a><span class='relatedKey'>.campana_id</span></td>
+                                                <td class="constraint detail">leads_campana_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
-                                    <td><p>Origen del lead</p></td>
+                                    <td><p>Campaña por la cual se consiguió el lead.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="origen">origen</span></td>
+                                    <td>enum_leads_origen</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;Otro&#39;::enum_leads_origen</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Origen del lead.</p></td>
                                 </tr>
                                 <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="persona_id">persona_id</span></td>
@@ -217,31 +217,10 @@
                                     <td><p>Id de persona del lead.</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="curso_id">curso_id</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="leads.curso_id&#39;s name implies that it&#39;s a child of cursos.curso_id, but it doesn&#39;t reference that column."><a href='cursos.html'>cursos</a><span class='relatedKey'>.curso_id</span></td>
-                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td><p>Id del curso del lead.</p></td>
-                                </tr>
-                                <tr>
                                     <td><span id="usu_insercion">usu_insercion</span></td>
                                     <td>varchar</td>
                                     <td>20</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -260,7 +239,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-25 21:56:26.144-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:33.461-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -277,7 +256,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-25 21:56:26.144-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:33.461-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -292,7 +271,7 @@
                                     <td><span id="usu_modificacion">usu_modificacion</span></td>
                                     <td>varchar</td>
                                     <td>20</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -304,6 +283,27 @@
                                         </table>
                                     </td>
                                     <td><p>Nombre del usuario que modificó el registro por última vez.</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="curso_id">curso_id</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="leads.curso_id references cursos.curso_id via leads_curso_id_fkey"><a href='cursos.html'>cursos</a><span class='relatedKey'>.curso_id</span></td>
+                                                <td class="constraint detail">leads_curso_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Id del curso en el que está interesado el lead.</p></td>
                                 </tr>
                                 </tbody>
                             </table>

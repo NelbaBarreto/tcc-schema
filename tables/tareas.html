@@ -104,10 +104,27 @@
                                 <tbody>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="tarea_id">tarea_id</span></td>
-                                    <td>int4</td>
+                                    <td>serial</td>
                                     <td>10</td>
                                     <td title=''></td>
                                     <td title='Automatically updated by the database'>√</td>
+                                    <td>nextval(&#39;tareas_tarea_id_seq&#39;::regclass)</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Identificador único de la tarea.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="asunto">asunto</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
@@ -117,10 +134,95 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Título de la tarea.</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="actividad_id">actividad_id</span></td>
+                                    <td><span id="descripcion">descripcion</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Descripción de la tarea.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="estado">estado</span></td>
+                                    <td>enum_tareas_estado</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Estado del Caso</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="prioridad">prioridad</span></td>
+                                    <td>enum_tareas_prioridad</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Prioridad de la tarea.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fec_inicio">fec_inicio</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha de inicio de la actividad.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fec_fin">fec_fin</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha prevista de finalización de la actividad.</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_asignado_id">usu_asignado_id</span></td>
                                     <td>int4</td>
                                     <td>10</td>
                                     <td title='nullable'>√</td>
@@ -133,17 +235,17 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="tareas.actividad_id references actividades.actividad_id via fk_tar_actividades"><a href='actividades.html'>actividades</a><span class='relatedKey'>.actividad_id</span></td>
-                                                <td class="constraint detail">fk_tar_actividades<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="tareas.usu_asignado_id references usuarios.usuario_id via tareas_usu_asignado_id_fkey"><a href='usuarios.html'>usuarios</a><span class='relatedKey'>.usuario_id</span></td>
+                                                <td class="constraint detail">tareas_usu_asignado_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Id de usuario asignado.</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fec_inicio">fec_inicio</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
+                                    <td><span id="usu_insercion">usu_insercion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -155,12 +257,46 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Nombre del usuario que insertó el registro.</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fec_fin">fec_fin</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
+                                    <td><span id="fec_insercion">fec_insercion</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;2023-01-19 22:48:34.638-03&#39;::timestamp with time zone</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha en la que se creó el registro.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fec_modificacion">fec_modificacion</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;2023-01-19 22:48:34.638-03&#39;::timestamp with time zone</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha en la que se modificó el registro por última vez.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="usu_modificacion">usu_modificacion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -172,7 +308,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Nombre del usuario que modificó el registro por última vez.</p></td>
                                 </tr>
                                 </tbody>
                             </table>

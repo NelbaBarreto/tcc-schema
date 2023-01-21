@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>campanas</h1><p><span id="recordNumber">4</span> rows</p><br />
+                    <h1>campanas</h1><p><span id="recordNumber">0</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -120,8 +120,12 @@
                                                 <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="leads.campana_id&#39;s name implies that it&#39;s a child of campanas.campana_id, but it doesn&#39;t reference that column."><a href='leads.html'>leads</a><span class='relatedKey'>.campana_id</span></td>
-                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="leads.campana_id references campanas.campana_id via leads_campana_id_fkey"><a href='leads.html'>leads</a><span class='relatedKey'>.campana_id</span></td>
+                                                <td class="constraint detail">leads_campana_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="oportunidades.campana_id references campanas.campana_id via oportunidades_campana_id_fkey"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.campana_id</span></td>
+                                                <td class="constraint detail">oportunidades_campana_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -129,12 +133,12 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Identificador único de la campana.</p></td>
+                                    <td><p>Identificador único de la campaña.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="nombre">nombre</span></td>
                                     <td>varchar</td>
-                                    <td>1000</td>
+                                    <td>255</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -146,7 +150,24 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Nombre de la campaña.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="descripcion">descripcion</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Descripción de la campaña.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_inicio">fec_inicio</span></td>
@@ -163,7 +184,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Fecha de inicio de la campana.</p></td>
+                                    <td><p>Fecha de inicio de la campaña.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_fin">fec_fin</span></td>
@@ -180,7 +201,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Fecha del fin de la campana.</p></td>
+                                    <td><p>Fecha del fin de la campaña.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="usu_insercion">usu_insercion</span></td>
@@ -205,7 +226,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-25 21:55:51.379-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:32.991-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -222,7 +243,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2022-09-25 21:55:51.379-04&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-19 22:48:32.991-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -298,6 +319,7 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                     <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
                                     <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
                                 </ul>
@@ -305,6 +327,10 @@
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/campanas.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/campanas.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         
