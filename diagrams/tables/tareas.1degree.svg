@@ -99,14 +99,14 @@
 <text text-anchor="start" x="28.5" y="-132.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">nom_usuario</text>
 <polygon fill="none" stroke="#000000" points="8.5,-106.2 8.5,-125.2 131.5,-125.2 131.5,-106.2 8.5,-106.2"/>
 <text text-anchor="start" x="11.5" y="-112.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
-<polygon fill="#ffffff" stroke="transparent" points="8.5,-87.2 8.5,-106.2 46.5,-106.2 46.5,-87.2 8.5,-87.2"/>
-<polygon fill="none" stroke="#000000" points="8.5,-87.2 8.5,-106.2 46.5,-106.2 46.5,-87.2 8.5,-87.2"/>
+<polygon fill="#ffffff" stroke="transparent" points="8.5,-87.2 8.5,-106.2 49.5,-106.2 49.5,-87.2 8.5,-87.2"/>
+<polygon fill="none" stroke="#000000" points="8.5,-87.2 8.5,-106.2 49.5,-106.2 49.5,-87.2 8.5,-87.2"/>
 <text text-anchor="start" x="11.5" y="-93.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
-<polygon fill="#ffffff" stroke="transparent" points="46.5,-87.2 46.5,-106.2 97.5,-106.2 97.5,-87.2 46.5,-87.2"/>
-<polygon fill="none" stroke="#000000" points="46.5,-87.2 46.5,-106.2 97.5,-106.2 97.5,-87.2 46.5,-87.2"/>
-<text text-anchor="start" x="62.1105" y="-93.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">0 rows</text>
-<polygon fill="#ffffff" stroke="transparent" points="97.5,-87.2 97.5,-106.2 131.5,-106.2 131.5,-87.2 97.5,-87.2"/>
-<polygon fill="none" stroke="#000000" points="97.5,-87.2 97.5,-106.2 131.5,-106.2 131.5,-87.2 97.5,-87.2"/>
+<polygon fill="#ffffff" stroke="transparent" points="49.5,-87.2 49.5,-106.2 95.5,-106.2 95.5,-87.2 49.5,-87.2"/>
+<polygon fill="none" stroke="#000000" points="49.5,-87.2 49.5,-106.2 95.5,-106.2 95.5,-87.2 49.5,-87.2"/>
+<text text-anchor="start" x="65.6105" y="-93.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">1 row</text>
+<polygon fill="#ffffff" stroke="transparent" points="95.5,-87.2 95.5,-106.2 131.5,-106.2 131.5,-87.2 95.5,-87.2"/>
+<polygon fill="none" stroke="#000000" points="95.5,-87.2 95.5,-106.2 131.5,-106.2 131.5,-87.2 95.5,-87.2"/>
 <text text-anchor="start" x="112.9053" y="-93.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">5 &gt;</text>
 </a>
 </g>
