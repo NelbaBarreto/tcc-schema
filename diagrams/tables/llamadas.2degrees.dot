@@ -20,27 +20,25 @@ digraph "twoDegreesRelationshipsDiagram" {
   ];
   "casos":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "casos":"elipses":w -> "leads":"lead_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "casos":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "casos":"elipses":w -> "usuarios":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "contactos":"organizacion_id":w -> "organizaciones":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "contactos":"persona_id":w -> "personas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "empleados":"elipses":w -> "personas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "empleados":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "encuesta_respuestas":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "encuesta_respuestas":"elipses":w -> "oportunidades":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "leads":"campana_id":w -> "campanas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "leads":"curso_id":w -> "cursos":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "leads":"persona_id":w -> "personas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "leads":"usu_asignado_id":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "llamadas":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "llamadas":"elipses":w -> "leads":"lead_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "leads":"usu_asignado_id":w -> "usuarios":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
+  "llamadas":"contacto_id":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "llamadas":"lead_id":w -> "leads":"lead_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "oportunidades":"elipses":w -> "campanas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "oportunidades":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
   "oportunidades":"elipses":w -> "cursos":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "oportunidades":"elipses":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "oportunidades":"elipses":w -> "usuarios":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "organizaciones":"elipses":w -> "personas":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "tareas":"contacto_id":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "tareas":"lead_id":w -> "leads":"lead_id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "tareas":"usu_asignado_id":w -> "usuarios":"usuario_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "tareas":"elipses":w -> "contactos":"contacto_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "tareas":"elipses":w -> "leads":"lead_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "tareas":"elipses":w -> "usuarios":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "campanas" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -88,17 +86,6 @@ digraph "twoDegreesRelationshipsDiagram" {
     target="_top"
     tooltip="cursos"
   ];
-  "empleados" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>empleados</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 row</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
-    </TABLE>>
-    URL="../../tables/empleados.html"
-    target="_top"
-    tooltip="empleados"
-  ];
   "encuesta_respuestas" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -128,10 +115,21 @@ digraph "twoDegreesRelationshipsDiagram" {
   ];
   "llamadas" [
    label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>llamadas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+    <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="4"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>llamadas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="llamada_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">llamada_id</TD></TR></TABLE></TD><TD PORT="llamada_id.type" ALIGN="LEFT">serial[10]</TD></TR>
+      <TR><TD PORT="asunto" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">asunto</TD></TR></TABLE></TD><TD PORT="asunto.type" ALIGN="LEFT">varchar[255]</TD></TR>
+      <TR><TD PORT="estado" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">estado</TD></TR></TABLE></TD><TD PORT="estado.type" ALIGN="LEFT">enum_llamadas_estado[2147483647]</TD></TR>
+      <TR><TD PORT="tipo" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">tipo</TD></TR></TABLE></TD><TD PORT="tipo.type" ALIGN="LEFT">enum_llamadas_tipo[2147483647]</TD></TR>
+      <TR><TD PORT="fec_inicio" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_inicio</TD></TR></TABLE></TD><TD PORT="fec_inicio.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
+      <TR><TD PORT="contacto_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">contacto_id</TD></TR></TABLE></TD><TD PORT="contacto_id.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="lead_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">lead_id</TD></TR></TABLE></TD><TD PORT="lead_id.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="descripcion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">descripcion</TD></TR></TABLE></TD><TD PORT="descripcion.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="usu_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_insercion</TD></TR></TABLE></TD><TD PORT="usu_insercion.type" ALIGN="LEFT">varchar[20]</TD></TR>
+      <TR><TD PORT="fec_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_insercion</TD></TR></TABLE></TD><TD PORT="fec_insercion.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
+      <TR><TD PORT="fec_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_modificacion</TD></TR></TABLE></TD><TD PORT="fec_modificacion.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
+      <TR><TD PORT="usu_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_modificacion</TD></TR></TABLE></TD><TD PORT="usu_modificacion.type" ALIGN="LEFT">varchar[20]</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 &gt;</TD></TR>
     </TABLE>>
     URL="../../tables/llamadas.html"
     target="_top"
@@ -172,23 +170,10 @@ digraph "twoDegreesRelationshipsDiagram" {
   ];
   "tareas" [
    label=<
-    <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="4"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>tareas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="tarea_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">tarea_id</TD></TR></TABLE></TD><TD PORT="tarea_id.type" ALIGN="LEFT">serial[10]</TD></TR>
-      <TR><TD PORT="asunto" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">asunto</TD></TR></TABLE></TD><TD PORT="asunto.type" ALIGN="LEFT">varchar[255]</TD></TR>
-      <TR><TD PORT="descripcion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">descripcion</TD></TR></TABLE></TD><TD PORT="descripcion.type" ALIGN="LEFT">text[2147483647]</TD></TR>
-      <TR><TD PORT="estado" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">estado</TD></TR></TABLE></TD><TD PORT="estado.type" ALIGN="LEFT">enum_tareas_estado[2147483647]</TD></TR>
-      <TR><TD PORT="prioridad" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">prioridad</TD></TR></TABLE></TD><TD PORT="prioridad.type" ALIGN="LEFT">enum_tareas_prioridad[2147483647]</TD></TR>
-      <TR><TD PORT="contacto_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">contacto_id</TD></TR></TABLE></TD><TD PORT="contacto_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="lead_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">lead_id</TD></TR></TABLE></TD><TD PORT="lead_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="fec_inicio" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_inicio</TD></TR></TABLE></TD><TD PORT="fec_inicio.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
-      <TR><TD PORT="fec_fin" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_fin</TD></TR></TABLE></TD><TD PORT="fec_fin.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
-      <TR><TD PORT="usu_asignado_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_asignado_id</TD></TR></TABLE></TD><TD PORT="usu_asignado_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="usu_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_insercion</TD></TR></TABLE></TD><TD PORT="usu_insercion.type" ALIGN="LEFT">varchar[20]</TD></TR>
-      <TR><TD PORT="fec_insercion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_insercion</TD></TR></TABLE></TD><TD PORT="fec_insercion.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
-      <TR><TD PORT="fec_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">fec_modificacion</TD></TR></TABLE></TD><TD PORT="fec_modificacion.type" ALIGN="LEFT">timestamptz[35,6]</TD></TR>
-      <TR><TD PORT="usu_modificacion" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usu_modificacion</TD></TR></TABLE></TD><TD PORT="usu_modificacion.type" ALIGN="LEFT">varchar[20]</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 &gt;</TD></TR>
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>tareas</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
     URL="../../tables/tareas.html"
     target="_top"
@@ -198,8 +183,6 @@ digraph "twoDegreesRelationshipsDiagram" {
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>usuarios</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="usuario_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">usuario_id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="nom_usuario" COLSPAN="3" BGCOLOR="#ffffff" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">nom_usuario</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
       <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 row</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">5 &gt;</TD></TR>
     </TABLE>>

@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>contactos</h1><p><span id="recordNumber">1</span> rows</p><br />
+                    <h1>contactos</h1><p><span id="recordNumber">0</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -112,12 +112,24 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
+                                                <td title="casos.contacto_id references contactos.contacto_id via casos_contacto_id_fkey"><a href='casos.html'>casos</a><span class='relatedKey'>.contacto_id</span></td>
+                                                <td class="constraint detail">casos_contacto_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="encuesta_respuestas.contacto_id references contactos.contacto_id via encuesta_respuestas_contacto_id_fkey"><a href='encuesta_respuestas.html'>encuesta_respuestas</a><span class='relatedKey'>.contacto_id</span></td>
                                                 <td class="constraint detail">encuesta_respuestas_contacto_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
+                                                <td title="llamadas.contacto_id references contactos.contacto_id via llamadas_contacto_id_fkey"><a href='llamadas.html'>llamadas</a><span class='relatedKey'>.contacto_id</span></td>
+                                                <td class="constraint detail">llamadas_contacto_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="oportunidades.contacto_id references contactos.contacto_id via oportunidades_contacto_id_fkey"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.contacto_id</span></td>
                                                 <td class="constraint detail">oportunidades_contacto_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tareas.contacto_id references contactos.contacto_id via tareas_contacto_id_fkey"><a href='tareas.html'>tareas</a><span class='relatedKey'>.contacto_id</span></td>
+                                                <td class="constraint detail">tareas_contacto_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -209,7 +221,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2023-01-25 02:25:01.564-03&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-27 21:01:29.084-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -226,7 +238,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2023-01-25 02:25:01.564-03&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-27 21:01:29.084-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>

@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>casos</h1><p><span id="recordNumber">1</span> rows</p><br />
+                    <h1>casos</h1><p><span id="recordNumber">0</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -239,6 +239,27 @@
                                     <td><p>Descripción de como se solucionó el caso.</p></td>
                                 </tr>
                                 <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lead_id">lead_id</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="casos.lead_id references leads.lead_id via casos_lead_id_fkey"><a href='leads.html'>leads</a><span class='relatedKey'>.lead_id</span></td>
+                                                <td class="constraint detail">casos_lead_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Id del lead para el caso.</p></td>
+                                </tr>
+                                <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="usu_asignado_id">usu_asignado_id</span></td>
                                     <td>int4</td>
                                     <td>10</td>
@@ -282,7 +303,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2023-01-25 02:25:01.091-03&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-27 21:01:28.836-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -299,7 +320,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2023-01-25 02:25:01.091-03&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-01-27 21:01:28.836-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -326,6 +347,27 @@
                                         </table>
                                     </td>
                                     <td><p>Nombre del usuario que modificó el registro por última vez.</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="contacto_id">contacto_id</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="casos.contacto_id references contactos.contacto_id via casos_contacto_id_fkey"><a href='contactos.html'>contactos</a><span class='relatedKey'>.contacto_id</span></td>
+                                                <td class="constraint detail">casos_contacto_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Id de contacto para el caso.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
