@@ -1,4 +1,4 @@
-date=2023-01-27 21:14:57-0300
+date=2023-02-10 07:54:37-0300
 os=Windows 10 10.0
 schemaspy-version=6.1.0
 schemaspy-build=6.1.0.41 2019-09-17 21:52:57

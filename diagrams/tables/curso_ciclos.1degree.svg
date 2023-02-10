@@ -119,14 +119,14 @@
 <text text-anchor="start" x="28.5" y="-198.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">curso_id</text>
 <polygon fill="none" stroke="#000000" points="8.5,-172.2 8.5,-191.2 131.5,-191.2 131.5,-172.2 8.5,-172.2"/>
 <text text-anchor="start" x="11.5" y="-178.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
-<polygon fill="#ffffff" stroke="transparent" points="8.5,-153.2 8.5,-172.2 46.5,-172.2 46.5,-153.2 8.5,-153.2"/>
-<polygon fill="none" stroke="#000000" points="8.5,-153.2 8.5,-172.2 46.5,-172.2 46.5,-153.2 8.5,-153.2"/>
+<polygon fill="#ffffff" stroke="transparent" points="8.5,-153.2 8.5,-172.2 49.5,-172.2 49.5,-153.2 8.5,-153.2"/>
+<polygon fill="none" stroke="#000000" points="8.5,-153.2 8.5,-172.2 49.5,-172.2 49.5,-153.2 8.5,-153.2"/>
 <text text-anchor="start" x="11.5" y="-159.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
-<polygon fill="#ffffff" stroke="transparent" points="46.5,-153.2 46.5,-172.2 97.5,-172.2 97.5,-153.2 46.5,-153.2"/>
-<polygon fill="none" stroke="#000000" points="46.5,-153.2 46.5,-172.2 97.5,-172.2 97.5,-153.2 46.5,-153.2"/>
-<text text-anchor="start" x="62.1105" y="-159.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">0 rows</text>
-<polygon fill="#ffffff" stroke="transparent" points="97.5,-153.2 97.5,-172.2 131.5,-172.2 131.5,-153.2 97.5,-153.2"/>
-<polygon fill="none" stroke="#000000" points="97.5,-153.2 97.5,-172.2 131.5,-172.2 131.5,-153.2 97.5,-153.2"/>
+<polygon fill="#ffffff" stroke="transparent" points="49.5,-153.2 49.5,-172.2 95.5,-172.2 95.5,-153.2 49.5,-153.2"/>
+<polygon fill="none" stroke="#000000" points="49.5,-153.2 49.5,-172.2 95.5,-172.2 95.5,-153.2 49.5,-153.2"/>
+<text text-anchor="start" x="65.6105" y="-159.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">1 row</text>
+<polygon fill="#ffffff" stroke="transparent" points="95.5,-153.2 95.5,-172.2 131.5,-172.2 131.5,-153.2 95.5,-153.2"/>
+<polygon fill="none" stroke="#000000" points="95.5,-153.2 95.5,-172.2 131.5,-172.2 131.5,-153.2 95.5,-153.2"/>
 <text text-anchor="start" x="112.9053" y="-159.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">3 &gt;</text>
 </a>
 </g>
