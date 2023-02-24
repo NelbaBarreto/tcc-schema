@@ -2,12 +2,12 @@ SequelizeMeta
 tareas
 llamadas
 casos
-telefonos
 encuesta_pregunta_respuestas
 empleados
-direcciones
 ciclo_profesores
+telefonos
 encuesta_pregunta_opciones
+direcciones
 encuesta_respuestas
 profesores
 curso_ciclos
@@ -15,7 +15,6 @@ leads
 oportunidades
 contactos
 organizaciones
-sedes
 encuesta_preguntas
 campanas
 cursos

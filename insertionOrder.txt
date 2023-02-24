@@ -3,7 +3,6 @@ usuarios
 cursos
 campanas
 encuesta_preguntas
-sedes
 organizaciones
 contactos
 oportunidades
@@ -11,12 +10,12 @@ leads
 curso_ciclos
 profesores
 encuesta_respuestas
-encuesta_pregunta_opciones
-ciclo_profesores
 direcciones
+encuesta_pregunta_opciones
+telefonos
+ciclo_profesores
 empleados
 encuesta_pregunta_respuestas
-telefonos
 casos
 llamadas
 tareas
