@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>curso_ciclos</h1><p><span id="recordNumber">0</span> rows</p><br />
+                    <h1>curso_ciclos</h1><p><span id="recordNumber">1</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -112,8 +112,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="ciclo_profesores.ciclo_id references curso_ciclos.ciclo_id via ciclo_profesores_ciclo_id_fkey"><a href='ciclo_profesores.html'>ciclo_profesores</a><span class='relatedKey'>.ciclo_id</span></td>
-                                                <td class="constraint detail">ciclo_profesores_ciclo_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="leads.ciclo_id references curso_ciclos.ciclo_id via leads_ciclo_id_fkey"><a href='leads.html'>leads</a><span class='relatedKey'>.ciclo_id</span></td>
+                                                <td class="constraint detail">leads_ciclo_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="oportunidades.ciclo_id references curso_ciclos.ciclo_id via oportunidades_ciclo_id_fkey"><a href='oportunidades.html'>oportunidades</a><span class='relatedKey'>.ciclo_id</span></td>
+                                                <td class="constraint detail">oportunidades_ciclo_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -196,9 +200,9 @@
                                     <td><p>Fecha de finalización del ciclo.</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="meses">meses</span></td>
-                                    <td>_text</td>
-                                    <td>2147483647</td>
+                                    <td><span id="usu_insercion">usu_insercion</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -210,7 +214,24 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Meses que dura el ciclo.</p></td>
+                                    <td><p>Nombre del usuario que insertó el registro.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fec_insercion">fec_insercion</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;2023-02-26 14:22:16.745-03&#39;::timestamp with time zone</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Fecha en la que se creó el registro.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="fec_modificacion">fec_modificacion</span></td>
@@ -218,7 +239,7 @@
                                     <td>35,6</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>&#39;2023-01-30 23:31:30.753-03&#39;::timestamp with time zone</td>
+                                    <td>&#39;2023-02-26 14:22:16.745-03&#39;::timestamp with time zone</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -245,6 +266,40 @@
                                         </table>
                                     </td>
                                     <td><p>Nombre del usuario que modificó el registro por última vez.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="codigo">codigo</span></td>
+                                    <td>uuid</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Identificador del ciclo.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="detalles">detalles</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Información adicional sobre el ciclo.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
